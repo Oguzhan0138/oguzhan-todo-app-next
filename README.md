@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Oguz-ToDo
 
-## Getting Started
+Oguz-ToDo, kişisel görev takibini yönetmek amacıyla Next.js ve Supabase kullanılarak geliştirilmiş tam kapsamlı (full-stack) bir web uygulamasıdır. Row Level Security (RLS) mimarisi sayesinde her kullanıcının yalnızca kendi verilerine erişebildiği izole ve güvenli bir yapı sunar.
 
-First, run the development server:
+Proje Özellikleri
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Kimlik Doğrulama: Supabase Auth ile güvenli kullanıcı kayıt ve giriş işlemleri. (test açamasında olduğu için mail doğrulamasını kaldırdım.)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Veri İzolasyonu: Supabase Row Level Security (RLS) politikaları ile kullanıcı verilerinin birbirinden tamamen ayrılması.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Görev Yönetimi: Yeni görev ekleme, düzenleme, arşive kaldırma ve kalıcı olarak silme işlemleri.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Öncelik ve Tarih Takibi: Görevler için öncelik seviyesi (Normal, Yüksek, Acil) ve son teslim tarihi (Due Date) belirleyebilme; tarihi geçen görevlerin otomatik olarak "başarısız" sayılması.
 
-## Learn More
+Tema Desteği: Kullanıcı tercihine göre şekillenen açık ve koyu tema seçenekleri.
 
-To learn more about Next.js, take a look at the following resources:
+Tasarım: Modern, duyarlı (responsive) ve tüm cihazlarla uyumlu kullanıcı arayüzü.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Kullanılan Teknolojiler
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Framework: Next.js 16 (App Router)
 
-## Deploy on Vercel
+Dil: JavaScript
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Veritabanı ve Auth: Supabase (PostgreSQL)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Stil Yönetimi: Vanilla CSS
+
+Bildirim ve Etkileşim: Toastify JS ve SweetAlert2
+
+Yapay Zeka Kullanım Raporu
+
+Bu projenin geliştirilme sürecinde yapay zeka araçları bir kod yazıcı olarak kullanılmıştır.
+
+Yapay Zekanın Kullanıldığı Alanlar:
+
+Veritabanı Modellemesi: Supabase PostgreSQL tablolarının oluşturulması ve özellikle Row Level Security (RLS) politikalarının doğru sözdizimi ile yazılmasında doğrulama aracı olarak kullanıldı.
+
+Next.js Mimarisi: App Router yapısına geçerken "Client Component" ve "Server Component" ayrımlarının planlanmasında fikir alışverişi yapıldı.
+
+İstemci Kütüphaneleri: SweetAlert2 ve Toastify gibi DOM manipülasyonu gerektiren kütüphanelerin React/Next.js yaşam döngüsüne (useEffect kancaları) hatasız entegre edilmesi için boilerplate kodlar elde edildi.
+
+Yapay Zeka Çıktılarında Yapılan Değişiklikler:
+
+Component Bölünmesi: Yapay zeka modüler yapıyı karmaşıklaştırma eğilimindeydi. Kodun okunabilirliğini ve yönetilebilirliğini artırmak için UI elementleri (Sidebar, Topbar, TodoCard, TodoModal) tarafımca planlanarak ayrı bileşenlere bölündü.
+
+Veri Çekme Optimizasyonu: Supabase'den dönen verilerin işlenmesi ve state üzerine aktarılması sırasında AI tarafından önerilen bazı karmaşık asenkron (async/await) yapıları, performansı artırmak adına tarafımca sadeleştirildi.
+
+Tamamen Tarafıma Ait Olan Kısımlar:
+
+İş Mantığı ve Akış: Görevlerin arşive alınması, tarihe göre başarısız sayılması ve kategorilerin kullanıcı bazlı izole çalışması gibi ürün vizyonu gerektiren mantıksal kararlar tarafıma aittir.
+
+UX/UI Kararları: Uygulamanın koyu/açık tema renkleri, bileşenlerin ekrandaki yerleşimi ve son kullanıcı deneyimini doğrudan etkileyen tasarım tercihleri tamamen benim kontrolümde şekillendirilmiştir.
